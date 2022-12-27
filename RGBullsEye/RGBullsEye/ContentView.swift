@@ -8,18 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var game = Game()
+    @State var guess: RGB
+    
     var body: some View {
         VStack {
-            Color(red: 0.5, green: 0.5, blue: 0.5)
+            Color(rgbStruct: game.target)
             Text("R: ?? G: ?? B: ??")
                 .padding()
-            Color(red: 0.5, green: 0.5, blue: 0.5)
-            Text("R: 204 G: 76 B: 178")
-                .padding()
-            Text("HIT ME")
-            Slider(value: .constant(0.5))
+            Color(rgbStruct: guess)
+            Text(guess.intString())
+            
+            ColorSlider(value: $guess.red, trackColor: Color.red)
+            ColorSlider(value: $guess.green, trackColor: Color.green)
+            ColorSlider(value: $guess.blue, trackColor: Color.blue)
+            
             Button("HIT ME") {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                print("I got hit")
             }
         }
     }
@@ -27,6 +32,25 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        
+        ContentView(guess: RGB(red: 0.3, green: 0.3, blue: 0.7))
+    }
+}
+
+struct ColorSlider: View {
+    
+    @Binding var value: Double
+    var trackColor: Color
+    
+    var body: some View {
+        
+        HStack {
+            Text("0")
+                .padding()
+            Slider(value: $value)
+                .accentColor(trackColor)
+            Text("255")
+        }
+        .padding(.horizontal)
     }
 }
