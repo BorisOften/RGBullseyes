@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		811C6D2B295FCE1D009BB349 /* NeuButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811C6D2A295FCE1D009BB349 /* NeuButtonStyle.swift */; };
+		811C6D2D295FD2FA009BB349 /* BevelText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811C6D2C295FD2FA009BB349 /* BevelText.swift */; };
 		81A608E8295A6F99009F0327 /* RGBullsEyeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A608E7295A6F99009F0327 /* RGBullsEyeApp.swift */; };
 		81A608EA295A6F99009F0327 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A608E9295A6F99009F0327 /* ContentView.swift */; };
 		81A608EC295A6F9B009F0327 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81A608EB295A6F9B009F0327 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		811C6D2A295FCE1D009BB349 /* NeuButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuButtonStyle.swift; sourceTree = "<group>"; };
+		811C6D2C295FD2FA009BB349 /* BevelText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BevelText.swift; sourceTree = "<group>"; };
 		81A608E4295A6F99009F0327 /* RGBullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGBullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A608E7295A6F99009F0327 /* RGBullsEyeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBullsEyeApp.swift; sourceTree = "<group>"; };
 		81A608E9295A6F99009F0327 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 				81A608E7295A6F99009F0327 /* RGBullsEyeApp.swift */,
 				81A608E9295A6F99009F0327 /* ContentView.swift */,
 				81A60902295E1179009F0327 /* ColorCircle.swift */,
+				811C6D2A295FCE1D009BB349 /* NeuButtonStyle.swift */,
+				811C6D2C295FD2FA009BB349 /* BevelText.swift */,
 				81A60904295E14FF009F0327 /* ViewExtension.swift */,
 				81A608EB295A6F9B009F0327 /* Assets.xcassets */,
 				81A608F5295A727C009F0327 /* Model */,
@@ -162,8 +168,10 @@
 			files = (
 				81A608FF295A731B009F0327 /* RGB.swift in Sources */,
 				81A608EA295A6F99009F0327 /* ContentView.swift in Sources */,
+				811C6D2D295FD2FA009BB349 /* BevelText.swift in Sources */,
 				81A608FD295A72E3009F0327 /* Game.swift in Sources */,
 				81A60905295E14FF009F0327 /* ViewExtension.swift in Sources */,
+				811C6D2B295FCE1D009BB349 /* NeuButtonStyle.swift in Sources */,
 				81A608E8295A6F99009F0327 /* RGBullsEyeApp.swift in Sources */,
 				81A60901295A7343009F0327 /* ColorExtension.swift in Sources */,
 				81A60903295E1179009F0327 /* ColorCircle.swift in Sources */,

@@ -12,44 +12,55 @@ struct ContentView: View {
     @State var guess: RGB
     @State var showScore = false
     
+    let circleSize: CGFloat = 0.275
+    let labelHeight: CGFloat = 0.06
+    let labelWidth: CGFloat = 0.53
+    let buttonWidth: CGFloat = 0.87
+    
     var body: some View {
-        ZStack {
-            Color.element
-                .edgesIgnoringSafeArea(.all)
-            VStack {
-                
-                ColorCircle(rgbColor: game.target, size: 200)
-                
-                if !showScore {
-                    Text("R: ?? G: ?? B: ??")
-                        .padding()
-                } else {
-                    Text(game.target.intString())
-                        .padding()
-                }
-                
-                ColorCircle(rgbColor: guess, size: 200)
+        GeometryReader { proxy in
+            ZStack {
+                Color.element
+                    .edgesIgnoringSafeArea(.all)
+                VStack {
                     
-                
-                Text(guess.intString())
-                ColorSlider(value: $guess.red, trackColor: Color.red)
-                ColorSlider(value: $guess.green, trackColor: Color.green)
-                ColorSlider(value: $guess.blue, trackColor: Color.blue)
-                
-                Button("HIT ME") {
-                    showScore.toggle()
-                    game.check(guess: guess)
-                    print(showScore)
-                }.alert(isPresented: $showScore) {
-                    Alert(
-                        title: Text("Your Score"),
-                        message: Text("\(game.scoreRound)"),
-                        dismissButton: .default(Text("OK")){
-                            game.startNewGame()
-                            guess = RGB()
-                        })
+                    ColorCircle(rgbColor: game.target, size: proxy.size.height * circleSize)
+                    
+                    if !showScore {
+                        BevelText(
+                            text: "R: ??? G: ??? B: ???",  width: proxy.size.width * labelWidth,
+                            height: proxy.size.height * labelHeight)
+                    } else {
+                        BevelText(
+                            text: game.target.intString(),  width: proxy.size.width * labelWidth,
+                            height: proxy.size.height * labelHeight)
+                    }
+                    
+                    ColorCircle(rgbColor: guess, size: proxy.size.height * circleSize)
+                    BevelText(text: guess.intString(),width: proxy.size.width * labelWidth,
+                              height: proxy.size.height * labelHeight)
+                    ColorSlider(value: $guess.red, trackColor: Color.red)
+                    ColorSlider(value: $guess.green, trackColor: Color.green)
+                    ColorSlider(value: $guess.blue, trackColor: Color.blue)
+                    
+                    Button("HIT ME") {
+                        showScore.toggle()
+                        game.check(guess: guess)
+                    }
+                    .buttonStyle(NeuButtonStyle(width: proxy.size.width * buttonWidth,
+                                                height: proxy.size.height * labelHeight))
+                    .alert(isPresented: $showScore) {
+                        Alert(
+                            title: Text("Your Score"),
+                            message: Text("\(game.scoreRound)"),
+                            dismissButton: .default(Text("OK")){
+                                game.startNewGame()
+                                guess = RGB()
+                            })
+                    }
                 }
             }
+            .font(.headline)
         }
     }
 }
